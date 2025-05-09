@@ -1,5 +1,5 @@
 def digit(n, k):
-    """Return the digit that is k from the right of n for positive integers n and k.
+    """从n的右侧返回k的数字，用于正整数n和k。
 
     >>> digit(3579, 2)
     5
@@ -8,12 +8,17 @@ def digit(n, k):
     >>> digit(3579, 10)
     0
     """
-    return ____
+    n=str(n)
+    len_n=len(n)
+    x=0
+    if len_n>k:
+        x=n[-(k+1)]     
+    print(x)
 
 
 def middle(a, b, c):
-    """Return the number among a, b, and c that is not the smallest or largest.
-    Assume a, b, and c are all different numbers.
+    """返回不是最小或最大的A，B和C中的数字。
+    假设A，B和C都是不同的数字。
 
     >>> middle(3, 5, 4)
     4
@@ -26,11 +31,19 @@ def middle(a, b, c):
     >>> middle(30, 5, 40)
     30
     """
-    return ____
+    max_num=max(a,b,c)
+    min_num=min(a,b,c)
+    if a!=max_num and a!=min_num:
+        result=a
+    elif b!=max_num and b!=min_num:
+        result=b
+    else:
+        result=c
+    print(result)
 
 
 def falling(n, k):
-    """Compute the falling factorial of n to depth k.
+    """计算n到深度k的下降阶乘.
 
     >>> falling(6, 3)  # 6 * 5 * 4
     120
@@ -42,11 +55,19 @@ def falling(n, k):
     1
     """
     "*** YOUR CODE HERE ***"
+    result=1
+    while k>0:
+        result*=n
+        n-=1
+        k-=1
+    print(result)
+        
+    
 
 
 def divisible_by_k(n, k):
     """
-    >>> a = divisible_by_k(10, 2)  # 2, 4, 6, 8, and 10 are divisible by 2
+    >>> a = divisible_by_k(10, 2)  ＃2、4、6、8和10被2排除
     2
     4
     6
@@ -60,11 +81,23 @@ def divisible_by_k(n, k):
     3
     >>> b
     3
-    >>> c = divisible_by_k(6, 7)  # There are no integers up to 6 divisible by 7
+    >>> c = divisible_by_k(6, 7)  ＃没有7个整数可分开7
     >>> c
     0
     """
     "*** YOUR CODE HERE ***"
+    
+    i=1
+    count=0
+    while i<=n:
+        if i%k==0:
+            print(i)
+            count+=1
+        i+=1
+    print(count)
+            
+        
+        
 
 
 def sum_digits(y):
@@ -81,6 +114,13 @@ def sum_digits(y):
     6
     """
     "*** YOUR CODE HERE ***"
+    y=str(y)
+    len_y=len(y)
+    i=0
+    result=0
+    while i<len_y:
+        result+=y[i]
+    print(result)
 
 
 def double_eights(n):
@@ -99,4 +139,20 @@ def double_eights(n):
     False
     """
     "*** YOUR CODE HERE ***"
+    n=str(n)
+    len_n=len(n)
+    i=0
+    count=0
+    ok= False
+    while i<len_n:
+        if n[i]=='8':
+            count+=1
+        i+=1
+    if count==2:
+        ok=True
+    print(ok)
+        
+    
+    
+    
 
