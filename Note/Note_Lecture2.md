@@ -77,7 +77,9 @@ Traceback (most recent call last):
 NameError: name 'z' is not defined
 ```
 
-```
+局部变量在全局中不显示
+
+```python
 >>> def f(x):
 ...     return x
 ...
@@ -87,6 +89,19 @@ NameError: name 'z' is not defined
 Traceback (most recent call last):
   File "<stdin>", line 1, in <module>
 NameError: name 'x' is not defined
+```
+
+```python
+>>> def t(x):
+...     a=2
+...     print(x,a)
+...
+>>> t(3)
+3 2
+>>> a
+Traceback (most recent call last):
+  File "<stdin>", line 1, in <module>
+NameError: name 'a' is not defined
 ```
 
 ## 4.print string
