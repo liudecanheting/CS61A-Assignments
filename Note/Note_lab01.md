@@ -1,4 +1,4 @@
-# Lab 01 Notes
+# Lab 01 Notes -- Functions
 
 ## 1.test1
 

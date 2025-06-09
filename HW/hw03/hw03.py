@@ -25,6 +25,12 @@ def num_eights(n):
     True
     """
     "*** YOUR CODE HERE ***"
+    if n==0:
+        return 0
+    elif n%10==8:
+        return 1+num_eights(n//10)
+    else:
+        return num_eights(n//10)
 
 
 def digit_distance(n):
@@ -47,6 +53,11 @@ def digit_distance(n):
     True
     """
     "*** YOUR CODE HERE ***"
+    if n<10:
+        return 0
+    else:
+        return digit_distance(n//10)+abs(n%10-(n//10)%10)
+    
 
 
 def interleaved_sum(n, odd_func, even_func):
@@ -71,7 +82,14 @@ def interleaved_sum(n, odd_func, even_func):
     True
     """
     "*** YOUR CODE HERE ***"
-
+    def find(k,is_odd):
+        if k>n:
+            return 0
+        if is_odd:
+            return odd_func(k)+find(k+1,False)
+        else:
+            return even_func(k)+find(k+1,True)
+    return find(1,True)
 
 def next_smaller_dollar(bill):
     """Returns the next smaller bill in order."""
@@ -107,6 +125,18 @@ def count_dollars(total):
     True
     """
     "*** YOUR CODE HERE ***"
+    def count(total,max_num):
+        if total==0:
+            return 1
+        elif total<0:
+            return 0
+        elif max_num==None:
+            return 0
+        else:
+            a=count(total,next_smaller_dollar(max_num))#不选择当前面额的纸币
+            b=count(total-max_num,max_num)#选择当前面额的纸币
+            return a+b
+    return count(total,100)
 
 
 def next_larger_dollar(bill):
@@ -143,6 +173,18 @@ def count_dollars_upward(total):
     True
     """
     "*** YOUR CODE HERE ***"
+    def count(total,min_num):
+        if total==0:
+            return 1
+        elif total<0:
+            return 0
+        elif min_num==None:
+            return 0
+        else:
+            a=count(total,next_larger_dollar(min_num))#不选择当前面额的纸币
+            b=count(total-min_num,min_num)#选择当前面额的纸币
+            return a+b
+    return count(total,1)
 
 
 def print_move(origin, destination):
@@ -178,6 +220,14 @@ def move_stack(n, start, end):
     """
     assert 1 <= start <= 3 and 1 <= end <= 3 and start != end, "Bad start/end"
     "*** YOUR CODE HERE ***"
+    if n==1:
+        print_move(start,end)
+    else:
+        spare=6-start-end
+        move_stack(n-1,start,spare)
+        print_move(start,end)
+        move_stack(n-1,spare,end)
+        
 
 
 from operator import sub, mul
@@ -193,5 +243,5 @@ def make_anonymous_factorial():
     ...     ['Assign', 'AnnAssign', 'AugAssign', 'NamedExpr', 'FunctionDef', 'Recursion'])
     True
     """
-    return 'YOUR_EXPRESSION_HERE'
-
+    #return (lambda f: lambda k: f(f, k))(lambda f, k: k if k == 1 else mul(k, f(f, sub(k, 1))))
+    return (lambda f: f(f))(lambda f: lambda x: 1 if x == 0 else x * f(f)(x - 1))

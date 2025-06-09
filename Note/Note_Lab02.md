@@ -1,4 +1,4 @@
-# CS61A Lab 02 Note
+# CS61A Lab 02 Note --Lambda Expression
 
 ## 1.布尔运算符 and,or,not
 

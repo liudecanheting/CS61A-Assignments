@@ -1,4 +1,4 @@
-# CS61A Lecture 6 Note
+# CS61A Lecture 6 Note --Design
 
 ## 1.python 中的浮点数比较
 
@@ -18,8 +18,6 @@ False
 ![alt text](<屏幕截图 2025-05-27 122059.png>)
 
 ## 3.高阶函数
-
-3.1
 
 ```python
 def announce_lead_changes(last_leader=None):
@@ -45,8 +43,7 @@ def announce_lead_changes(last_leader=None):
 Player 0 takes the lead by 2
 ```
 
-3.2
-**用递归来写斐波那契数列是如此的低效**
+## 4.用递归来写斐波那契数列是如此的低效
 
 ```python
 >>> def fib(n):
