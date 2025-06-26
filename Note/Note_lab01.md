@@ -1,4 +1,4 @@
-# Lab 01 Notes -- Functions
+# CS61A Lab 01 Notes -- Functions
 
 ## 1.test1
 

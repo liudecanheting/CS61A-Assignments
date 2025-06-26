@@ -1,4 +1,4 @@
-# Lecture 2 Notes --Functions
+# CS61A Lecture 2 Notes --Functions
 
 ## 1. Variable Swapping Example
 
