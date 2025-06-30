@@ -1,8 +1,9 @@
-# CS61A Lecture 9 Note --Tree_Recursion
+# CS61A Lecture 9 Notes --Tree_Recursion
 
 ## 1.相互递归与自身递归
 
 ## 2.汉诺塔问题
+
 ```py
 def sove_hanoi(n,start_peg,end_peg):
     if n==1:
@@ -18,6 +19,7 @@ def move(n,start_peg,end_peg):
 ```
 
 ## 3.打印问题
+
 ```py
 def inverse_casade(n):
     """
@@ -55,6 +57,3 @@ def shrink(n):
     print(n)
     shrink(n//10)
 ```
-
-
-

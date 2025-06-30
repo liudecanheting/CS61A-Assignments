@@ -1,5 +1,7 @@
-# CS61A Lecture 11 Note --Data_Abstraction
+# CS61A Lecture 11 Notes --Data_Abstraction
+
 ## 1.列表
+
 ```py
 >>>pair=[1,2]
 >>>a,b=pair
@@ -9,10 +11,12 @@
 1
 ```
 
-## 2.rational(),numer(),denom() Scheme编程
+## 2.rational(),numer(),denom() Scheme 编程
+
 rational(n,d) 返回一个列表[n,d]
-numer(x) 返回分数x的分子
-denom(x) 返回分数x的分母
+numer(x) 返回分数 x 的分子
+denom(x) 返回分数 x 的分母
+
 ```py
 def rational(n,d):
     def select(name):
@@ -27,9 +31,10 @@ def numer(x):
 
 def denom(x):
     return x('d')
-```    
+```
 
 ## 3.字典
+
 ```py
 >>> numerals={'a':4,'c':6,'e':9}
 >>> numerals.keys()

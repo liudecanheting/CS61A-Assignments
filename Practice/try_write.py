@@ -1,39 +1,38 @@
-def inverse_casade(n):
-    """
-    >>>inverse_casade(1234)
-    1
-    12
-    123
-    1234
-    123
-    12
-    1
-    """
-    grow(n)
-    print(n)
-    shrink(n)
+def tree(label,branches=[]):
+    for branch in branches:
+        assert is_tree(branch),
+    return [label]+list(branches)
 
-def f_then_g(f,g,n):
-    if n:
-        f(n)
-        g(n)
+def label(tree):
+    return tree[0]
 
-grow=lambda n:f_then_g(grow,print,n//10)
-shrink=lambda n:f_then_g(print,shrink,n//10)
+def branches(tree):
+    return tree[1:]
 
+def is_tree(tree):
+    if type(tree)!=list or len(tree)<1:
+        return False
+    for branch in branches(tree):
+        if not is_tree(branch):
+            return False
+    return True
 
-def grow(n):
-    if n==0:
-        return
-    grow(n//10)
-    print(n)
+def is_leaf(tree):
+    return not branches(tree)
 
-def shrink(n):
-    if n==0:
-        return
-    print(n)
-    shrink(n//10)
+def fib_tree(n):
+    if n<=1:
+        return tree(n)
+    else:
+        left,right=fib_tree(n-2),fib_tree(n-1)
+        return tree(label(left)+label(right),[left,right])
 
+def increment_leaves(t):
+    if is_leaf(t):
+        return tree(label(t)+1)
+    else:
+        bs=[increment_leaves(b) for b in branches(t)]
+        return tree(label(t),bs)
 
-
-
+def increment(t):
+    return tree(label(t)+1,[increment(b) for b in branches(t)])

@@ -1,4 +1,5 @@
-# CS61A Lecture 7 Note --Function Examples
+# CS61A Lecture 7 Notes --Function_Examples
+
 ## 1.从环境模型推导原始代码
 
 ```python
@@ -14,14 +15,17 @@
 >>> flip,flop=flop,flip
 >>> flip(flop(1)(2))(3)
 ```
-1.flop(1),此时的flop等同于“判断函数”，返回一个lambda函数
-2.flop(1)(2),此时返回3
-3.flip(flop(1)(2))等同于flip(3),然后返回flop函数，即判断函数
-4.flip(flop(1)(2))(3)等同于flop(3),调用判断函数,因为3>2,最后返回None
+
+1.flop(1),此时的 flop 等同于“判断函数”，返回一个 lambda 函数
+2.flop(1)(2),此时返回 3
+3.flip(flop(1)(2))等同于 flip(3),然后返回 flop 函数，即判断函数
+4.flip(flop(1)(2))(3)等同于 flop(3),调用判断函数,因为 3>2,最后返回 None
 **但是，流程图中第三部返回的是“判断函数”，额，我很疑惑**
 
 ## 2.删去指定数字后，顺序变还是不变
+
 ### 1.不变
+
 ```python
 def remove(n,num):
     kept,digits=0,0
@@ -34,7 +38,9 @@ def remove(n,num):
 print(remove(325613,3))
 2561
 ```
+
 ### 2.变，逆序
+
 ```python
 def remove(n,num):
     kept,digits=0,0
@@ -48,11 +54,14 @@ print(remove(325613,3))
 1652
 ```
 
-## 3.ucb中的trace--python装饰器与跟踪
+## 3.ucb 中的 trace--python 装饰器与跟踪
+
 放在函数上方，“函数的调用，函数的参数，函数的返回”都会被打印出来
 
 ## 4.装饰器函数
+
 一种快速转换函数的方式，或者追踪函数
+
 ```
 def trace1(fn):
     def traced(x):
@@ -73,7 +82,7 @@ def sum_squares_up_to(n):
     total=0
     while k<=n:
         total,k=total+square(k),k+1
-    return total    
+    return total
 $ py -i try_write.py
 >>> square(12)
 Calling <function square at 0x000001C3023CCB80> with argument 12
@@ -89,6 +98,7 @@ Calling <function square at 0x000001C3023CCB80> with argument 5
 ```
 
 ## 5.寻找重复数字，通过高阶函数,使用闭包来维护状态
+
 ```python
 def repeat(k):
     return detector(lambda j:False)(k)
@@ -103,7 +113,9 @@ def detector(f):
 repeat(1)(3)(1)(4)(4)
 4
 ```
+
 ## 6.函数中嵌套函数
+
 ```python
 pumbaa(pumbaa)(timon)   (5)
 apply_4_times(timon)    (5)

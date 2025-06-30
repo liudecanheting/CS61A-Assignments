@@ -1,4 +1,4 @@
-# CS61A Lecture 5 Note --Environments
+# CS61A Lecture 5 Notes --Environments
 
 ## 1.本地变量，父框架
 

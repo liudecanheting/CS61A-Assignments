@@ -1,4 +1,4 @@
-# CS61A Lecture 6 Note --Design
+# CS61A Lecture 6 Notes --Design
 
 ## 1.python 中的浮点数比较
 
